@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fadza17/His-Name-Is-Also-Effort.git/static/css/main.66ab1f4b.css",
+    "main.js": "/fadza17/His-Name-Is-Also-Effort.git/static/js/main.a0989555.js",
+    "index.html": "/fadza17/His-Name-Is-Also-Effort.git/index.html",
+    "main.66ab1f4b.css.map": "/fadza17/His-Name-Is-Also-Effort.git/static/css/main.66ab1f4b.css.map",
+    "main.a0989555.js.map": "/fadza17/His-Name-Is-Also-Effort.git/static/js/main.a0989555.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66ab1f4b.css",
+    "static/js/main.a0989555.js"
+  ]
+}
