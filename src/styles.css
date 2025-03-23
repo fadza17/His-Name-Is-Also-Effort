@@ -1,0 +1,550 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f3ff;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Home Page Styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffcad4 0%, #b5eaea 100%);
+  text-align: center;
+}
+
+.home-content {
+  max-width: 800px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ff85a2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message {
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.message p {
+  margin-bottom: 15px;
+}
+
+.message ul {
+  list-style-type: none;
+  margin: 20px 0;
+}
+
+.message li {
+  margin-bottom: 10px;
+}
+
+.start-button {
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background-color: #ff85a2;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 133, 162, 0.4);
+}
+
+.start-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 15px rgba(255, 133, 162, 0.6);
+}
+
+/* Quiz Styles */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+  background-color: #fff8f8;
+}
+
+.lives-counter {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff85a2;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-question {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.question-counter {
+  align-self: flex-start;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #777;
+}
+
+.question-image-container {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.question-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.question-text {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  width: 100%;
+}
+
+.option-button {
+  padding: 15px;
+  font-size: 1.1rem;
+  background-color: #f3f3f3;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.option-button:hover {
+  background-color: #e6e6e6;
+}
+
+.option-button.correct {
+  background-color: #a8e6cf;
+  border-color: #6ccc8b;
+}
+
+.option-button.incorrect {
+  background-color: #ffcad4;
+  border-color: #ff85a2;
+}
+
+/* Curtains Styles */
+.curtains-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #b5eaea 0%, #ffcad4 100%);
+}
+
+.curtains-container h2 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.lives-info {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.curtains-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  max-width: 1000px;
+}
+
+.curtain {
+  position: relative;
+  width: 150px;
+  height: 300px;
+  background: linear-gradient(to bottom, #ff85a2, #ff9fb1);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.curtain:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 10px,
+    rgba(255, 255, 255, 0.1) 10px,
+    rgba(255, 255, 255, 0.1) 20px
+  );
+}
+
+.curtain:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.curtain-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: white;
+  z-index: 1;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.curtain.opened {
+  background: linear-gradient(to bottom, #888, #aaa);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.opened-label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px 0;
+}
+
+.opened-curtains-info {
+  margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.confirmation-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.confirmation-content {
+  width: 90%;
+  max-width: 500px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.confirmation-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.confirmation-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.confirmation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.confirmation-buttons button {
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.confirmation-buttons button:first-child {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.confirmation-buttons button:last-child {
+  background-color: #ff85a2;
+  color: white;
+}
+
+/* Reward Styles */
+.reward-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffd3b6 0%, #a8e6cf 100%);
+}
+
+/* Reward Styles (lanjutan) */
+.reveal-animation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .curtain-opening {
+    width: 300px;
+    height: 300px;
+    background-color: #ff85a2;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 133, 162, 0.7);
+    }
+    
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 20px rgba(255, 133, 162, 0);
+    }
+    
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 133, 162, 0);
+    }
+  }
+  
+  .reveal-animation h2 {
+    margin-top: 30px;
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .reward-content {
+    max-width: 800px;
+    padding: 40px;
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+  
+  .reward-content h2 {
+    font-size: 2.5rem;
+    color: #ff85a2;
+    margin-bottom: 30px;
+  }
+  
+  .destination {
+    margin-bottom: 40px;
+  }
+  
+  .destination h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Tambahan untuk gambar destinasi */
+  .destination-image-container {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .destination-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .destination-image:hover {
+    transform: scale(1.05);
+  }
+  
+  .challenge-card {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 15px;
+    text-align: left;
+  }
+  
+  .challenge-card h4 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  .challenge-card p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+  
+  .reward-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .continue-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #ff85a2;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .continue-button:hover {
+    background-color: #ff6b8e;
+    transform: translateY(-3px);
+  }
+  
+  .home-button {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #a8e6cf;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .home-button:hover {
+    background-color: #8dd5bc;
+    transform: translateY(-3px);
+  }
+  
+  /* Loading Style */
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    font-size: 1.5rem;
+    color: #555;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .curtains-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .curtains-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .options-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .title {
+      font-size: 2.3rem;
+    }
+    
+    .message {
+      font-size: 1rem;
+    }
+    
+    .reward-buttons {
+      flex-direction: column;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .curtains-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .curtain {
+      width: 100%;
+      max-width: 200px;
+    }
+    
+    .reward-content {
+      padding: 20px;
+    }
+    
+    .reward-content h2 {
+      font-size: 2rem;
+    }
+    
+    .destination h3 {
+      font-size: 1.5rem;
+    }
+    
+    .challenge-card h4 {
+      font-size: 1.2rem;
+    }
+  }
